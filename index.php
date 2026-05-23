@@ -11,13 +11,14 @@ require_once 'classes/BookLibrary.php';
 
 $library = new BookLibrary();
 
-// Consume flash message
+
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
 function h(string $s): string {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,6 @@ function h(string $s): string {
 </head>
 <body>
 
-<!-- ── Header ─────────────────────────────────────────────── -->
 <header>
   <div class="wrap">
     <div class="header-inner">
@@ -46,7 +46,6 @@ function h(string $s): string {
 <div class="wrap">
   <div class="main-grid">
 
-    <!-- ── Left: Book list (READ) ──────────────────────────── -->
     <div>
       <?php if ($flash): ?>
         <div class="flash <?= $flash['type'] === 'success' ? 'flash-ok' : 'flash-err' ?>">
@@ -57,7 +56,6 @@ function h(string $s): string {
       <?php require 'read.php'; ?>
     </div>
 
-    <!-- ── Right: Add Book Form (CREATE) ───────────────────── -->
     <div class="form-panel">
       <h2>Add New Book</h2>
 
@@ -102,8 +100,8 @@ function h(string $s): string {
       </form>
     </div>
 
-  </div><!-- /.main-grid -->
-</div><!-- /.wrap -->
+  </div>
+</div>
 
 </body>
 </html>

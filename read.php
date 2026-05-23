@@ -20,7 +20,6 @@ function statusBadge(string $s): string {
 }
 ?>
 
-<!-- Stats Bar -->
 <div class="stats-bar">
     <div class="stat">
         <div class="stat-num"><?= $stats['total'] ?></div>
@@ -40,7 +39,6 @@ function statusBadge(string $s): string {
     </div>
 </div>
 
-<!-- Search -->
 <form method="GET" class="search-row" action="index.php">
     <input class="search-input" type="text" name="search"
            placeholder="Search by title, author, or genre…"
@@ -51,13 +49,11 @@ function statusBadge(string $s): string {
     <?php endif; ?>
 </form>
 
-<!-- Section Title -->
 <div class="section-title">
     <?= $search ? 'Results for "' . htmlspecialchars($search) . '"' : 'Your Collection' ?>
     &nbsp;(<?= count($books) ?>)
 </div>
 
-<!-- Book List -->
 <?php if (empty($books)): ?>
     <div class="empty">No books found. Add one using the form →</div>
 <?php else: ?>

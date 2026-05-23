@@ -12,7 +12,6 @@ require_once 'classes/BookLibrary.php';
 
 $library = new BookLibrary();
 
-// ── POST: save changes ─────────────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id     = (int)($_POST['id']    ?? 0);
     $title  = trim($_POST['title']  ?? '');
@@ -39,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// ── GET: show edit form ────────────────────────────────────────────────────
+
 $id   = (int)($_GET['id'] ?? 0);
 $book = $library->getById($id);
 
